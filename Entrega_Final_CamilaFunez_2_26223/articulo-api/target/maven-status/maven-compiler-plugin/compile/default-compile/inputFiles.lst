@@ -1,0 +1,17 @@
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\ArticuloApiApplication.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\CategoriaInicializador.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\controller\ArticuloController.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\controller\CategoriaController.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\controller\MovimientoStockController.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\generics\RepositorioGenerico.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\model\Articulo.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\model\Categoria.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\model\MovimientoStock.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\model\Producto.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\model\Servicio.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\repository\ArticuloRepository.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\repository\CategoriaRepository.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\repository\MovimientoStockRepository.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\service\ArticuloService.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\service\ArticuloServiceImpl.java
+C:\Entrega_Final_CamilaFunez_26223\articulo-api\src\main\java\com\ejemplo\articulos\articulo_api\service\MovimientoStockService.java

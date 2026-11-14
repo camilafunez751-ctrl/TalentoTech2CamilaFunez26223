@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Inventario</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="contenedor">
+
+    <aside class="sidebar">
+        <div class="marca">
+            <div class="marca-icono">I</div>
+            <div>
+                <h2>Inventario</h2>
+                <span>Panel de gestión</span>
+            </div>
+        </div>
+
+        <p class="menu-titulo">MENÚ PRINCIPAL</p>
+
+        <nav class="menu">
+            <a href="#" class="enlace-menu activo" data-seccion="dashboard">Dashboard</a>
+            <a href="#" class="enlace-menu" data-seccion="articulos">Artículos</a>
+            <a href="#" class="enlace-menu" data-seccion="inventario">Inventario</a>
+            <a href="#" class="enlace-menu" data-seccion="movimientos">Movimientos</a>
+            <a href="#" class="enlace-menu" data-seccion="categorias">Categorías</a>
+            <a href="#" class="enlace-menu" data-seccion="vencimientos">Vencimientos</a>
+        </nav>
+
+        <div class="sidebar-pie">
+            Sistema de gestión
+            <small>Versión 2.0</small>
+        </div>
+    </aside>
+
+    <main class="contenido">
+
+        <header class="encabezado">
+            <div>
+                <span class="subtitulo">CONTROL Y GESTIÓN</span>
+                <h1 id="tituloSeccion">Dashboard</h1>
+                <p id="descripcionSeccion">Bienvenido al sistema de gestión de inventario.</p>
+            </div>
+
+        <div class="usuario">
+                <div class="usuario-avatar">CF</div>
+                <div>
+                <strong>Administrador</strong>
+                <small>Panel de control</small>
+                </div>
+        </div>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="vista activa">
+
+            <div class="resumen">
+
+                <article class="tarjeta">
+                <div class="tarjeta-info">
+                    <span>Total de dinero</span>
+                    <strong id="totalDinero">$ 0,00</strong>
+                </div>
+                <div class="tarjeta-icono violeta">💰</div>
+                </article>
+
+                <article class="tarjeta">
+                <div class="tarjeta-info">
+                    <span>Total de artículos</span>
+                    <strong id="totalArticulos">0</strong>
+                </div>
+                <div class="tarjeta-icono azul">📦</div>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="tarjeta-info">
+                        <span>Categorías</span>
+                        <strong id="totalCategorias">0</strong>
+                    </div>
+                    <div class="tarjeta-icono violeta">🏷️</div>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="tarjeta-info">
+                        <span>Próximos vencimientos</span>
+                        <strong id="proximosVencimientos">0</strong>
+                    </div>
+                    <div class="tarjeta-icono naranja">⏰</div>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="tarjeta-info">
+                        <span>Artículos con stock bajo</span>
+                        <strong id="totalStockBajo">0</strong>
+                    </div>
+                    <div class="tarjeta-icono naranja">⚠️</div>
+                </article>
+
+            </div>
+
+            <section class="panel">
+                <div class="panel-encabezado">
+                    <div>
+                        <h2>Artículos recientes</h2>
+                        <p>Últimos artículos registrados en el sistema.</p>
+                    </div>
+                </div>
+
+                <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Artículo</th>
+                            <th>Precio costo</th>
+                            <th>Precio venta</th>
+                            <th>Categoría</th>
+                            <th>Vencimiento</th>
+                            <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaArticulos"></tbody>
+                    </table>
+                </div>
+
+                <p id="mensajeArticulos" class="mensaje-tabla"></p>
+            </section>
+
+            </section>
+
+        <!-- ARTÍCULOS -->
+            <section id="articulos" class="vista">
+
+            <section class="panel">
+                <div class="panel-encabezado">
+                    <div>
+                        <h2>Gestión de artículos</h2>
+                        <p>Administrá tus artículos, precios y fechas de vencimiento.</p>
+                    </div>
+
+                    <button class="btn-principal" id="btnNuevoArticuloLista">
+                        + Nuevo artículo
+                    </button>
+                </div>
+
+                <div class="buscador">
+                    <input
+                    type="text"
+                    id="buscarArticuloLista"
+                    placeholder="Buscar artículos por nombre..."
+                    >
+                </div>
+
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Artículo</th>
+                            <th>Precio costo</th>
+                            <th>Precio venta</th>
+                            <th>Categoría</th>
+                            <th>Vencimiento</th>
+                            <th>Opciones</th>
+                        </tr>
+                        </thead>
+                    <tbody id="tablaArticulosLista"></tbody>
+                    </table>
+                </div>
+
+                <p id="mensajeArticulosLista" class="mensaje-tabla"></p>
+            </section>
+
+            </section>
+
+        <!-- INVENTARIO -->
+        <section id="inventario" class="vista">
+
+            <div class="resumen">
+
+                <article class="tarjeta">
+                    <div class="tarjeta-info">
+                        <span>Artículos registrados</span>
+                        <strong id="inventarioTotal">0</strong>
+                    </div>
+                    <div class="tarjeta-icono azul">📦</div>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="tarjeta-info">
+                    <span>Stock bajo</span>
+                    <strong id="inventarioStockBajo">0</strong>
+                    </div>
+                    <div class="tarjeta-icono naranja">⚠️</div>
+                </article>
+
+            </div>
+
+            <!-- RESUMEN FINANCIERO -->
+            <div class="resumen resumen-financiero">
+
+                <article class="tarjeta">
+                    <div class="tarjeta-info">
+                    <span>Costo total</span>
+                    <strong id="inventarioCostoTotal">$ 0,00</strong>
+                    </div>
+                    <div class="tarjeta-icono azul">💰</div>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="tarjeta-info">
+                        <span>Ingresos por ventas</span>
+                        <strong id="inventarioIngresosVentas">$ 0,00</strong>
+                    </div>
+                    <div class="tarjeta-icono verde">📈</div>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="tarjeta-info">
+                        <span>Ganancias</span>
+                        <strong id="inventarioGanancias">$ 0,00</strong>
+                    </div>
+                    <div class="tarjeta-icono violeta">💎</div>
+                </article>
+
+            </div>
+
+            <!-- TABLA DE INVENTARIO -->
+            <section class="panel">
+
+                <div class="panel-encabezado">
+                    <div>
+                        <h2>Control de inventario</h2>
+                        <p>Consulta las existencias y ubicaciones de tus artículos.</p>
+                    </div>
+
+                    <button class="btn-principal" id="btnNuevoMovimiento">
+                        + Registrar movimiento
+                    </button>
+                </div>
+
+                <div class="buscador">
+                    <input
+                        type="text"
+                        id="buscarInventario"
+                        placeholder="Buscar por nombre o código de barras..."
+                    >
+                </div>
+
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Artículo</th>
+                            <th>Categoría</th>
+                            <th>Precio costo</th>
+                            <th>Precio venta</th>
+                            <th>Stock actual</th>
+                            <th>Stock mínimo</th>
+                            <th>Ubicación</th>
+                            <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaInventario"></tbody>
+                    </table>
+                </div>
+
+                <p id="mensajeInventario" class="mensaje-tabla"></p>
+
+            </section>
+
+            </section>
+
+        <!-- MOVIMIENTOS -->
+        <section id="movimientos" class="vista">
+
+            <section class="panel">
+                <div class="panel-encabezado">
+                    <div>
+                        <h2>Historial de movimientos</h2>
+                        <p>Registro de entradas y salidas de mercadería.</p>
+                    </div>
+
+                    <button class="btn-principal" id="btnNuevoMovimientoHistorial">
+                        + Nuevo movimiento
+                    </button>
+                </div>
+
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                            <th>Fecha</th>
+                            <th>Artículo</th>
+                            <th>Tipo</th>
+                            <th>Cantidad</th>
+                            <th>Motivo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaMovimientos"></tbody>
+                    </table>
+                </div>
+
+                <p id="mensajeMovimientos" class="mensaje-tabla"></p>
+            </section>
+
+            </section>
+
+        <!-- CATEGORÍAS -->
+        <section id="categorias" class="vista">
+
+            <section class="panel">
+                <div class="panel-encabezado">
+                    <div>
+                        <h2>Categorías</h2>
+                        <p>Categorías registradas en el sistema.</p>
+                    </div>
+                </div>
+
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                            <th>ID</th>
+                            <th>Nombre de categoría</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaCategorias"></tbody>
+                    </table>
+                </div>
+
+                <p id="mensajeCategorias" class="mensaje-tabla"></p>
+        </section>
+
+        </section>
+
+        <!-- VENCIMIENTOS -->
+        <section id="vencimientos" class="vista">
+
+            <section class="panel">
+                <div class="panel-encabezado">
+                    <div>
+                        <h2>Próximos vencimientos</h2>
+                        <p>Control de fechas de vencimiento de artículos.</p>
+                </div>
+                </div>
+
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Artículo</th>
+                            <th>Categoría</th>
+                            <th>Fecha de vencimiento</th>
+                            <th>Estado</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tablaVencimientos"></tbody>
+                    </table>
+                </div>
+
+                <p id="mensajeVencimientos" class="mensaje-tabla"></p>
+            </section>
+
+            </section>
+
+        <!-- MODAL DE ARTÍCULOS -->
+        <div id="modalArticulo" class="modal">
+
+        <div class="modal-contenido">
+
+        <div class="modal-encabezado">
+                <div>
+                    <span class="subtitulo">GESTIÓN DE PRODUCTOS</span>
+                    <h2 id="tituloModal">Nuevo artículo</h2>
+                </div>
+
+                    <button type="button" id="cerrarModal" class="btn-cerrar">×</button>
+                </div>
+
+                <form id="formArticulo">
+
+                    <input type="hidden" id="idArticulo">
+
+                    <label for="nombre">Nombre del artículo</label>
+                    <input type="text" id="nombre" required>
+
+                    <label for="codigoBarras">Código de barras</label>
+                    <input
+                        type="text"
+                        id="codigoBarras"
+                        maxlength="50"
+                        placeholder="Ingresar código"
+                    >
+
+                    <label for="descripcion">Descripción</label>
+                    <input
+                        type="text"
+                        id="descripcion"
+                        placeholder="Descripción del artículo"
+                    >
+
+                    <label for="precioCosto">Precio de costo</label>
+                    <input
+                        type="number"
+                        id="precioCosto"
+                        step="0.01"
+                        min="0"
+                        required
+                    >
+
+                    <label for="precioVenta">Precio de venta</label>
+                    <input
+                        type="number"
+                        id="precioVenta"
+                        step="0.01"
+                        min="0"
+                        required
+                    >
+
+                    <label for="categoria">Categoría</label>
+                    <select id="categoria" required>
+                        <option value="">Seleccionar categoría</option>
+                    </select>
+
+                    <label for="fechaVencimiento">Fecha de vencimiento</label>
+                    <input type="date" id="fechaVencimiento">
+
+                    <label for="stockInicial">Stock inicial</label>
+                    <input
+                type="number"
+                id="stockInicial"
+                min="0"
+                step="1"
+                value="0"
+                    >
+
+<label for="stockMinimo">Stock mínimo</label>
+<input
+    type="number"
+    id="stockMinimo"
+    min="0"
+    step="1"
+    value="0"
+>
+
+                    <label for="ubicacion">Ubicación</label>
+                    <input
+                        type="text"
+                        id="ubicacion"
+                        placeholder="Ej.: Depósito A - Estante 2"
+                    >
+
+                    <div class="botones-formulario">
+                        <button type="button" id="btnCancelar" class="btn-secundario">
+                            Cancelar
+                        </button>
+
+                        <button type="submit" id="btnGuardarArticulo" class="btn-principal">
+                            Guardar artículo
+                        </button>
+                    </div>
+
+                </form>
+        </div>
+        </div>
+
+        <!-- MODAL DE MOVIMIENTOS -->
+        <div id="modalMovimiento" class="modal">
+
+            <div class="modal-contenido">
+
+                <div class="modal-encabezado">
+                    <div>
+                        <span class="subtitulo">CONTROL DE EXISTENCIAS</span>
+                        <h2>Registrar movimiento</h2>
+                    </div>
+
+                    <button type="button" id="cerrarModalMovimiento" class="btn-cerrar">
+                        ×
+                    </button>
+                </div>
+
+                <form id="formMovimiento">
+
+                    <label for="articuloMovimiento">Artículo</label>
+                    <select id="articuloMovimiento" required>
+                        <option value="">Seleccionar artículo</option>
+                    </select>
+
+                    <label for="tipoMovimiento">Tipo de movimiento</label>
+                    <select id="tipoMovimiento" required>
+                        <option value="">Seleccionar tipo</option>
+                        <option value="ENTRADA">Entrada de mercadería</option>
+                        <option value="SALIDA">Salida de mercadería</option>
+                        <option value="VENTA">Venta</option>
+                    </select>
+
+                    <label for="cantidadMovimiento">Cantidad</label>
+                    <input
+                        type="number"
+                        id="cantidadMovimiento"
+                        min="1"
+                        step="1"
+                        required
+                    >
+
+                    <label for="motivoMovimiento">Motivo</label>
+                    <input
+                        type="text"
+                        id="motivoMovimiento"
+                        maxlength="255"
+                        placeholder="Ej.: Reposición de mercadería"
+                        required
+                    >
+
+                    <div class="botones-formulario">
+                        <button type="button" id="btnCancelarMovimiento" class="btn-secundario">
+                            Cancelar
+                        </button>
+
+                        <button type="submit" id="btnGuardarMovimiento" class="btn-principal">
+                            Registrar movimiento
+                        </button>
+                    </div>
+
+                </form>
+                    </div>
+                    </div>
+
+    </main>
+                    </div>
+
+<script src="/app.js" defer></script>
+
+</body>
+</html>
